@@ -4,11 +4,13 @@
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article_path(article) %>
-      <--<%= article.title %>-->
       <%= article.body %>
     </li>
   <% end %>
 </ul>
 
 <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+
+
+<br><%= link_to "Show tag list", tags_path  %>
 

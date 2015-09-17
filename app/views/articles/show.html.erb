@@ -8,8 +8,11 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
-<p><%= @article.body %><br><%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}%>
-<%= link_to "edit", edit_article_path(@article) %></p>
+<p><%= @article.body %><br>
+<% if logged_in? %>
+	<%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}%>
+	<%= link_to "edit", edit_article_path(@article) %></p>
+<% end %>
 <h3>Comments (<%= @article.comments.size %>):</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'comments/form' %>
